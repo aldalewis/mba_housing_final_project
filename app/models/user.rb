@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sublets,
+             :class_name => "Rental",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

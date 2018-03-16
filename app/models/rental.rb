@@ -1,6 +1,11 @@
 class Rental < ApplicationRecord
   # Direct associations
 
+  belongs_to :sublettor,
+             :class_name => "User",
+             :foreign_key => "user_id",
+             :counter_cache => :sublets_count
+
   # Indirect associations
 
   # Validations
