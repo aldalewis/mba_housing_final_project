@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many sublets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Sublets
+      </li>
+
+      <% @user.sublets.each do |rental| %>
+        <li class="list-group-item">
+          <a href="/rentals/<%= rental.id %>">
+            <%= rental.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rentals/<%= rental.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many saved_rentals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Saved Rentals
+      </li>
+
+      <% @user.saved_rentals.each do |saved_rental| %>
+        <li class="list-group-item">
+          <a href="/saved_rentals/<%= saved_rental.id %>">
+            <%= saved_rental.notes %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/saved_rentals/<%= saved_rental.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/saved_rentals/<%= saved_rental.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_saved_rental/<%= saved_rental.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
