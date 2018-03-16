@@ -10,7 +10,7 @@ class SavedRentalsController < ApplicationController
   end
 
   def index
-    @saved_rentals = SavedRental.all
+    @saved_rentals = current_user.saved_rentals.page(params[:page]).per(10)
 
     render("saved_rentals/index.html.erb")
   end
