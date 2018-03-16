@@ -22,8 +22,11 @@
         <td><%= saved_rental.notes %></td>
         <td>
           <a href="/saved_rentals/<%= saved_rental.id %>" class="btn btn-primary">Show</a>
-          <a href="/saved_rentals/<%= saved_rental.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_saved_rental/<%= saved_rental.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == saved_rental.user %>
+            <a href="/saved_rentals/<%= saved_rental.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_saved_rental/<%= saved_rental.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

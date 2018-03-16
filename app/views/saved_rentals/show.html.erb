@@ -20,12 +20,14 @@
       <a href="/saved_rentals" class="btn btn-primary">
         Back
       </a>
-      <a href="/saved_rentals/<%= @saved_rental.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_saved_rental/<%= @saved_rental.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @saved_rental.user %>
+        <a href="/saved_rentals/<%= @saved_rental.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_saved_rental/<%= @saved_rental.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
