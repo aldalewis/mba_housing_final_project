@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Saved_rental resource:
+  # CREATE
+  get "/saved_rentals/new", :controller => "saved_rentals", :action => "new"
+  post "/create_saved_rental", :controller => "saved_rentals", :action => "create"
+
+  # READ
+  get "/saved_rentals", :controller => "saved_rentals", :action => "index"
+  get "/saved_rentals/:id", :controller => "saved_rentals", :action => "show"
+
+  # UPDATE
+  get "/saved_rentals/:id/edit", :controller => "saved_rentals", :action => "edit"
+  post "/update_saved_rental/:id", :controller => "saved_rentals", :action => "update"
+
+  # DELETE
+  get "/delete_saved_rental/:id", :controller => "saved_rentals", :action => "destroy"
+  #------------------------------
+
   # Routes for the Rental resource:
   # CREATE
   get "/rentals/new", :controller => "rentals", :action => "new"

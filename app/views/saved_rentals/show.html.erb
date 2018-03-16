@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Saved Rental #<%= @saved_rental.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Rental</dt>
+      <dd><%= @saved_rental.rental_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @saved_rental.user_id %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @saved_rental.notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/saved_rentals" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/saved_rentals/<%= @saved_rental.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_saved_rental/<%= @saved_rental.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
