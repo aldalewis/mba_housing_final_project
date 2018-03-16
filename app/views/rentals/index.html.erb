@@ -3,6 +3,176 @@
     Rentals
     <a href="/rentals/new" class="btn btn-lg btn-success">New Rental</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "rentals_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :roommates_cont, "Roommates contains" %>
+    <%= f.text_field :roommates_cont, :class => "form-control", :placeholder => "Roommates contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :end_date, "End date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='end_dategteqPicker'>
+                  <%= f.text_field :end_date_gteq, :class => "form-control", :placeholder => "End date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='end_datelteqPicker'>
+                  <%= f.text_field :end_date_lteq, :class => "form-control", :placeholder => "End date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#end_dategteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#end_datelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#end_dategteqPicker').on("dp.change", function (e) {
+                  $('#end_datelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#end_datelteqPicker').on("dp.change", function (e) {
+                  $('#end_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :date_available, "Date available" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='date_availablegteqPicker'>
+                  <%= f.text_field :date_available_gteq, :class => "form-control", :placeholder => "Date available greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='date_availablelteqPicker'>
+                  <%= f.text_field :date_available_lteq, :class => "form-control", :placeholder => "Date available less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#date_availablegteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_availablelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#date_availablegteqPicker').on("dp.change", function (e) {
+                  $('#date_availablelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#date_availablelteqPicker').on("dp.change", function (e) {
+                  $('#date_availablegteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+  <%= f.label :rent_amount, "Rent amount" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :rent_amount_gteq, :class => "form-control", :placeholder => "Rent amount greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :rent_amount_lteq, :class => "form-control", :placeholder => "Rent amount less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :feature_cont, "Feature contains" %>
+    <%= f.text_field :feature_cont, :class => "form-control", :placeholder => "Feature contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :description_cont, "Description contains" %>
+    <%= f.text_field :description_cont, :class => "form-control", :placeholder => "Description contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :bookmarks_notes_cont, "SavedRental notes contains" %>
+      <%= f.text_field :bookmarks_notes_cont, :class => "form-control", :placeholder => "SavedRental notes contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/rentals" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#rentals_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 
