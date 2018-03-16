@@ -1,6 +1,10 @@
 class Rental < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :class_name => "SavedRental",
+             :dependent => :destroy
+
   belongs_to :sublettor,
              :class_name => "User",
              :foreign_key => "user_id",

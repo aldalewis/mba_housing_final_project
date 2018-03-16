@@ -1,6 +1,9 @@
 class SavedRental < ApplicationRecord
   # Direct associations
 
+  belongs_to :rental,
+             :counter_cache => :bookmarks_count
+
   belongs_to :user,
              :counter_cache => true
 
