@@ -41,7 +41,13 @@
         <td><%= rental.rent_amount %></td>
         <td><%= rental.date_available %></td>
         <td><%= rental.end_date %></td>
-        <td><%= rental.sublettor.id %></td>
+        <td>
+          <% if rental.sublettor.present? %>
+            <a href="/users/<%= rental.sublettor.id %>">
+              <%= rental.sublettor.id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= rental.roommates %></td>
         <td>
           <a href="/rentals/<%= rental.id %>" class="btn btn-primary">Show</a>

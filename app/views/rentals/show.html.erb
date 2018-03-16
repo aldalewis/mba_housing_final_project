@@ -34,7 +34,13 @@
       <dd><%= @rental.end_date %></dd>
 
       <dt>User</dt>
-      <dd><%= @rental.user_id %></dd>
+      <dd>
+        <% if @rental.sublettor.present? %>
+          <a href="/users/<%= @rental.user_id %>">
+            <%= @rental.sublettor.id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Roommates</dt>
       <dd><%= @rental.roommates %></dd>
