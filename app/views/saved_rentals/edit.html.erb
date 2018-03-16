@@ -24,7 +24,7 @@
           Rental
         </label>
 
-        <input type="text" id="rental_id" name="rental_id" placeholder="Rental" class="form-control" value="<%= @saved_rental.rental_id %>">
+        <%= select_tag(:rental_id, options_from_collection_for_select(Rental.all, :id, :name, @saved_rental.rental_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
