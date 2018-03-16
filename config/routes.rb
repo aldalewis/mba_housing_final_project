@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "rentals#index"
   # Routes for the Saved_rental resource:
   # CREATE
   get "/saved_rentals/new", :controller => "saved_rentals", :action => "new"
