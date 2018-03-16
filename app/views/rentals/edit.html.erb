@@ -91,14 +91,8 @@
         <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @rental.end_date %>">
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :id, @rental.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for roommates -->
       <div class="form-group">
