@@ -5,6 +5,8 @@ class Rental < ApplicationRecord
 
   # Validations
 
+  validates :address, :uniqueness => true
+
   validates :address, :presence => { :message => "Address can't be blank" }
 
   validates :date_available, :presence => { :message => "Date Available can't be blank" }
