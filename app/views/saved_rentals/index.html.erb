@@ -18,7 +18,7 @@
       <% @saved_rentals.each do |saved_rental| %>
       <tr>
         <td><%= saved_rental.rental.name %></td>
-        <td><%= saved_rental.user_id %></td>
+        <td><%= saved_rental.user.id %></td>
         <td><%= saved_rental.notes %></td>
         <td>
           <a href="/saved_rentals/<%= saved_rental.id %>" class="btn btn-primary">Show</a>
