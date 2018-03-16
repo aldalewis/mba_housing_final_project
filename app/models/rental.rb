@@ -5,6 +5,8 @@ class Rental < ApplicationRecord
 
   # Validations
 
+  validates :end_date, :presence => { :message => "End Date can't be blank" }
+
   validates :name, :uniqueness => { :scope => [:address], :message => "Address has already been registered" }
 
   validates :name, :presence => { :message => "Name Can't be Blank" }
