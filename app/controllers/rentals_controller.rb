@@ -10,7 +10,7 @@ class RentalsController < ApplicationController
   end
 
   def index
-    @rentals = Rental.all
+    @rentals = Rental.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@rentals.where.not(:address_latitude => nil)) do |rental, marker|
       marker.lat rental.address_latitude
       marker.lng rental.address_longitude
