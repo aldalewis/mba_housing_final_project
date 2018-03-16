@@ -16,6 +16,7 @@ class RentalsController < ApplicationController
   end
 
   def show
+    @saved_rental = SavedRental.new
     @rental = Rental.find(params[:id])
 
     render("rentals/show.html.erb")
