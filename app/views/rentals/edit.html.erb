@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @rental.errors.any? %>
+  <% @rental.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Rental #<%= @rental.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_rental/<%= @rental.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @rental.name %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @rental.address %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @rental.image %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @rental.description %></textarea>
+      </div>
+
+      <!-- Label and input for feature -->
+      <div class="form-group">
+        <label for="feature" class="control-label">
+          Feature
+        </label>
+
+        <input type="text" id="feature" name="feature" placeholder="Feature" class="form-control" value="<%= @rental.feature %>">
+      </div>
+
+      <!-- Label and input for rent_amount -->
+      <div class="form-group">
+        <label for="rent_amount" class="control-label">
+          Rent amount
+        </label>
+
+        <input type="text" id="rent_amount" name="rent_amount" placeholder="Rent amount" class="form-control" value="<%= @rental.rent_amount %>">
+      </div>
+
+      <!-- Label and input for date_available -->
+      <div class="form-group">
+        <label for="date_available" class="control-label">
+          Date available
+        </label>
+
+        <input type="text" id="date_available" name="date_available" placeholder="Date available" class="form-control" value="<%= @rental.date_available %>">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @rental.end_date %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @rental.user_id %>">
+      </div>
+
+      <!-- Label and input for roommates -->
+      <div class="form-group">
+        <label for="roommates" class="control-label">
+          Roommates
+        </label>
+
+        <input type="text" id="roommates" name="roommates" placeholder="Roommates" class="form-control" value="<%= @rental.roommates %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Rental
+      </button>
+      or
+      <a href="/rentals/<%= @rental.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

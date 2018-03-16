@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h3>Rental #<%= @rental.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @rental.name %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @rental.address %></dd>
+
+      <dt>Image</dt>
+      <dd><%= @rental.image %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @rental.description %></dd>
+
+      <dt>Feature</dt>
+      <dd><%= @rental.feature %></dd>
+
+      <dt>Rent amount</dt>
+      <dd><%= @rental.rent_amount %></dd>
+
+      <dt>Date available</dt>
+      <dd><%= @rental.date_available %></dd>
+
+      <dt>End date</dt>
+      <dd><%= @rental.end_date %></dd>
+
+      <dt>User</dt>
+      <dd><%= @rental.user_id %></dd>
+
+      <dt>Roommates</dt>
+      <dd><%= @rental.roommates %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/rentals" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/rentals/<%= @rental.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_rental/<%= @rental.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
