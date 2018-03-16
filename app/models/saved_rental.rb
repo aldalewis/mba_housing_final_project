@@ -5,6 +5,8 @@ class SavedRental < ApplicationRecord
 
   # Validations
 
+  validates :rental_id, :presence => true
+
   validates :user_id, :presence => true
 
 end
